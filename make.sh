@@ -58,6 +58,7 @@ case $1 in
 		echo "  Fulan"
 		echo "   27)  Spark"
 		echo "   28)  Spark7162"
+		echo "   29)  HL101"
 		echo
 		echo "  VU Plus"
 		echo "   40)  Vu+ Solo4K"
@@ -112,6 +113,7 @@ case "$REPLY" in
 	26) BOXARCH="sh4";BOXTYPE="cuberevo_3000hd";;
 	27) BOXARCH="sh4";BOXTYPE="spark";;
 	28) BOXARCH="sh4";BOXTYPE="spark7162";;
+	29) BOXARCH="sh4";BOXTYPE="hl101";;
 	40) BOXARCH="arm";BOXTYPE="vusolo4k";;
 	41) BOXARCH="mips";BOXTYPE="vuduo";;
 	42) BOXARCH="mips";BOXTYPE="vuduo2";;
