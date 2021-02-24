@@ -48,10 +48,10 @@ case $1 in
 		echo "  AB IPBox/cuberevo/Xsarius"
 		echo "   16)  55HD"
 		echo "   18)  9900HD"
-		echo "   19)  9000HD / id."
-		echo "   20)  900HD / mini"
-		echo "   21)  910HD / mini2"
-		echo "   22)  91HD / 250HD"
+		echo "   19)  cuberevo / 9000"
+		echo "   20)  mini / 900HD"
+		echo "   21)  mini2 / 910HD"
+		echo "   22)  250HD / 91HD"
 		echo "   24)  2000HD"
 		echo "   26)  3000HD / Xsarius Alpha"
 		echo
@@ -184,23 +184,25 @@ fi
 # Kernel Optimization
 #
 case $3 in
-	[1-4]) REPLY=$3;;
+	[1-5]) REPLY=$3;;
 	*)	echo -e "\nOptimization:"
-		echo -e "   \033[01;32m1)  optimization for size\033[00m"
+		echo "   1)  optimization for size"
 		echo "   2)  optimization normal"
 		echo "   3)  Kernel debug"
 		echo "   4)  debug (includes Kernel debug)"
-		read -p "Select optimization (1-4)? ";;
+		echo -e "   \033[01;32m5)  pre-defined\033[00m"
+		read -p "Select optimization (1-5)? ";;
 esac
 
 case "$REPLY" in
-	1)  OPTIMIZATIONS="size";;
-	2)  OPTIMIZATIONS="normal";;
-	3)  OPTIMIZATIONS="kerneldebug";;
-	4)  OPTIMIZATIONS="debug";;
-	*)  OPTIMIZATIONS="size";;
+	1)  echo "OPTIMIZATIONS=size" >> config;;
+	2)  echo "OPTIMIZATIONS=normal" >> config;;
+	3)  echo "OPTIMIZATIONS=kerneldebug" >> config;;
+	4)  echo "OPTIMIZATIONS=debug" >> config;;
+	5) ;;
+	*) ;;
 esac
-echo "OPTIMIZATIONS=$OPTIMIZATIONS" >> config
+#echo "OPTIMIZATIONS=$OPTIMIZATIONS" >> config
 
 #
 # WLAN Support
@@ -228,39 +230,39 @@ case $5 in
 	*)	echo -e "\nMedia Framework:"
 		echo "   1) libeplayer3"
 		echo "   2) gstreamer (recommended for mips and arm boxes)"
-		echo -e "   \033[01;32m3) skip\033[00m"
+		echo -e "   \033[01;32m3) pre-defined\033[00m"
 		read -p "Select media framework (1-3)? ";;
 esac
 
 case "$REPLY" in
-	1) MEDIAFW="buildinplayer";;
-	2) MEDIAFW="gstreamer";;
-	3) MEDIAFW=" ";;
-	*) MEDIAFW=" ";;
+	1) echo "MEDIAFW=buildinplayer" >> config;;
+	2) echo "MEDIAFW=gstreamer" >> config;;
+	3) ;;
+	*) ;;
 esac
-echo "MEDIAFW=$MEDIAFW" >> config
 
 #
 # Plugins Interface (lua/python)
 #
 case $6 in
-	[1-4]) REPLY=$6;;
+	[1-5]) REPLY=$6;;
 	*)	echo -e "\nWhich neutrino interface do you want to build?:"
-		echo -e "   \033[01;32m1) lua\033[00m"
+		echo "   1)  lua"
 		echo "   2)  python (experimental)"
 		echo "   3)  lua and python (experimental)"
 		echo "   4)  none"
-		read -p "Select Interface to build (1-4)? ";;
+		echo -e "   \033[01;32m5) pre-defined\033[00m"
+		read -p "Select Interface to build (1-5)? ";;
 esac
 
 case "$REPLY" in
-	1) INTERFACE="lua";;
-	2) INTERFACE="python";;
-	3) INTERFACE="lua-python";;
-	4) INTERFACE=" ";;
-	*) INTERFACE="lua";;
+	1) echo "INTERFACE=lua" >> config;;
+	2) echo "INTERFACE=python" >> config;;
+	3) echo "INTERFACE=lua-python" >> config;;
+	4) echo "INTERFACE= " >> config;;
+	5) ;;
+	*) ;;
 esac
-echo "INTERFACE=$INTERFACE" >> config
 
 #
 # testing
@@ -296,5 +298,3 @@ echo "  make help"
 echo "to check your build enviroment:"
 echo "  make printenv"
 echo " "
-
-
