@@ -57,5 +57,3 @@ neutrino-plugins-distclean:
 	rm -f $(D)/neutrinohd2-plugins.config.status
 	rm -f $(D)/neutrinohd2-plugins.do_prepare
 	rm -f $(D)/neutrinohd2-plugins.do_compile
-
-

@@ -436,7 +436,7 @@ endif
 #
 # release-base
 #
-release-base: release-common release-$(BOXTYPE) python-iptv-install python-install
+release-base: release-common release-$(BOXTYPE)
 	
 #
 # release
