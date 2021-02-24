@@ -120,6 +120,7 @@ include make/cleantargets.mk
 include make/patches.mk
 include make/bootstrap.mk
 include make/system-tools.mk
+include make/oscam.mk
 
 update:
 	@if test -d $(BASE_DIR); then \
