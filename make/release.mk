@@ -44,6 +44,7 @@ release-common: $(RELEASE_DEPS)
 	install -d $(RELEASE_DIR)/var/lib/{nfs,modules}
 	install -d $(RELEASE_DIR)/var/tuxbox/{config,plugins}
 	install -d $(RELEASE_DIR)/var/tuxbox/config/{webtv,zapit}
+	install -d $(RELEASE_DIR)/usr/share/E2emulator
 	mkdir -p $(RELEASE_DIR)/etc/rc.d/rc0.d
 	ln -s ../init.d/sendsigs $(RELEASE_DIR)/etc/rc.d/rc0.d/S20sendsigs
 	ln -s ../init.d/umountfs $(RELEASE_DIR)/etc/rc.d/rc0.d/S40umountfs
@@ -435,7 +436,7 @@ endif
 #
 # release-base
 #
-release-base: release-common release-$(BOXTYPE)
+release-base: release-common release-$(BOXTYPE) python-iptv-install python-install
 	
 #
 # release
