@@ -1,8 +1,8 @@
 # buildsystem-ddt
 
-git clone https://github.com/mohousch/buildsystem-ddt.git
+git clone https://github.com/Greder/ddt-hd2.git
 
-cd buildsystem-ddt
+cd ddt-hd2
 
 **for first use**
 
